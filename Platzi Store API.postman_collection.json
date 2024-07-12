@@ -29,7 +29,7 @@
 									"const jsonData = pm.response.json();\r",
 									"\r",
 									"pm.test('Check status code is 200', function () {\r",
-									"    pm.expect(pm,response.code).to.equal(200);\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
 									"});\r",
 									"\r",
 									"pm.test('Check more than ten product is fetched', function (){\r",
