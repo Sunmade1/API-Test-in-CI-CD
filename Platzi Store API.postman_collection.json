@@ -65,11 +65,33 @@
 				},
 				{
 					"name": "Get a product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Check status code is 200', ()=>{\r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
+									"})\r",
+									"pm.test('Verify if a product is retreived', ()=>{\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an('object');\r",
+									"    pm.expect(jsonData.id).to.be.a('number');\r",
+									"    pm.expect(jsonData.title).to.be.a('string');\r",
+									"    pm.expect(jsonData).haveOwnProperty('category');\r",
+									"   // console.log(typeof(jsonData.id));\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.escuelajs.co/api/v1/products/184",
+							"raw": "https://api.escuelajs.co/api/v1/products/12",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -80,7 +102,7 @@
 								"api",
 								"v1",
 								"products",
-								"184"
+								"12"
 							]
 						}
 					},
@@ -93,7 +115,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"Latest Stock\",\r\n  \"price\": 10,\r\n  \"description\": \"A description\",\r\n  \"categoryId\": 26,\r\n  \"images\": [\"https://placeimg.com/640/480/any\"]\r\n}",
+							"raw": "{\r\n  \"title\": \"Latest Stock\",\r\n  \"price\": 10,\r\n  \"description\": \"A description\",\r\n  \"categoryId\": 2,\r\n  \"images\": [\"https://placeimg.com/640/480/any\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
