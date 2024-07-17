@@ -91,7 +91,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.escuelajs.co/api/v1/products/12",
+							"raw": "https://api.escuelajs.co/api/v1/products/1158",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -102,7 +102,7 @@
 								"api",
 								"v1",
 								"products",
-								"12"
+								"1158"
 							]
 						}
 					},
@@ -115,7 +115,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"Latest Stock\",\r\n  \"price\": 10,\r\n  \"description\": \"A description\",\r\n  \"categoryId\": 2,\r\n  \"images\": [\"https://placeimg.com/640/480/any\"]\r\n}",
+							"raw": "{\r\n  \"title\": \"Latest Stock\",\r\n  \"price\": 10,\r\n  \"description\": \"A description\",\r\n  \"categoryId\": 4,\r\n  \"images\": [\"https://placeimg.com/640/480/any\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -139,8 +139,106 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update product",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.clear();\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function (){\r",
+									"    pm.expect(pm.response.code).to.eqls(200);\r",
+									"    pm.expect(pm.response.status).to.eqls('OK');\r",
+									"\r",
+									"})\r",
+									"\r",
+									"pm.test('Verify a product is updated', ()=>{\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an('object');\r",
+									"    pm.expect(jsonData.id).to.be.a('number');\r",
+									"    pm.expect(jsonData.title).to.equal('Changed title');\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Changed title\",\r\n  \"price\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.escuelajs.co/api/v1/products/1159",
+							"protocol": "https",
+							"host": [
+								"api",
+								"escuelajs",
+								"co"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"1159"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Changed title\",\r\n  \"price\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.escuelajs.co/api/v1/products/1161",
+					"protocol": "https",
+					"host": [
+						"api",
+						"escuelajs",
+						"co"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1161"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
