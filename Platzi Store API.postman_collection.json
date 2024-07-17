@@ -91,7 +91,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.escuelajs.co/api/v1/products/1158",
+							"raw": "https://api.escuelajs.co/api/v1/products/1166",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -102,7 +102,7 @@
 								"api",
 								"v1",
 								"products",
-								"1158"
+								"1166"
 							]
 						}
 					},
@@ -223,7 +223,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.escuelajs.co/api/v1/products/1161",
+					"raw": "https://api.escuelajs.co/api/v1/products/1171",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -234,7 +234,7 @@
 						"api",
 						"v1",
 						"products",
-						"1161"
+						"1171"
 					]
 				}
 			},
